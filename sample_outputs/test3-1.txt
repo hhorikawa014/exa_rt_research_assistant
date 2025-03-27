@@ -1,0 +1,27 @@
+
+This model is defined as a classifier to classify as "normal" if the region of interest is within the predicted regions and "malignancy" if the genomic regions are not within the predicted regions.
+
+This model was constructed using the class :class:`~gcn.contrib.support_vector_classifier.SV_Classifier` class.
+
+.. code-block:: python
+
+    from gcn.def run(data, out_file, params=definesdef run_svm(data, out_file, params=defines.SV_CLASSIFIER_PARAMS):
+    """
+Implement a support vector machine (SVM) model to classify cancer subtypes using genomic data, as described in "Applications of Support Vector Machine (SVM) Learning in cancer Genomics".
+
+This model is defined as a classifier to classify as "normal" if the region of interest is within the predicted regions and "malignancy" if the genomic regions are not within the predicted regions.
+
+This model was constructed using the class :class:`~gcn.contrib.support_vector_classifier.SV_Classifier` class.
+
+.. code-block:: python
+
+    from gcn.contrib import support_vector_classifier.run_svm
+    run_svm(data, out_file)
+
+"""
+    svm = SVM_Classifier(data, **params)
+    svm.fit(data)
+    out_str = "SVM : " + svm.__repr__()
+    with open(out_file, 'w') as out_handle:
+        out_handle.write(out_str)
+    return out_str

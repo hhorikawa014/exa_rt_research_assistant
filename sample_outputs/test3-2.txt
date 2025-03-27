@@ -1,0 +1,68 @@
+See the paper "Learning Deep Learning Models with tumor-marker disease" for more information.
+"""
+
+import numpy as np
+import pandas as pd
+import os
+import mxnet as _mx
+import warnings
+from .models import SVM, LogisticRegression
+from .utils import _init_logging
+
+# Load and preprocess tumor-marker data
+tumor_data = pd.read_table(osdefsdefs.tumor_data = _init_logging()
+tumor_data['Cancer'] = tumor_data['Tumor_Name'].apply(lambda x: 'T' + x)
+
+# Preprocess tumor-marker data
+tumor_data = tumor_data[tumor_data['Cancer'] != 'T'].copy()
+tumor_data = tumor_data.drop(['Tumor_Name'], axis=1)
+tumor_data = tumor_data[['Tumor_Marker_X', 'Tumor_Marker_Y', 'Tumor_Marker_Z']].copy()
+tumor_data = tumor_data.rename(columns={'Tumor_Marker_X': 'X', 'Tumor_Marker_Y': 'Y', 'Tumor_Marker_Z': 'Z'})
+
+# Initialize model parameters
+model_params = {}
+model_params['Cancer'] = tumor_data
+
+# Define the model and optimizer
+model = SVM(model_params)
+optimizer = _mx.optimizer.create('SGD')
+model.initialize()
+
+# Define the metrics we are going to use to evaluate the model
+metrics = ['accuracy', 'sensitivity', 'specificity', 'precision', 'recall']
+
+# Define the cross-validation metric
+cross_validation_metrics = [metrics]
+metrics = cross_validation_metrics + metrics
+cross_validation_metrics = _mx.metric.create_metrics(cross_validation_metrics)
+cross_validation_metrics.name = 'cross_validation_metrics'
+
+# Use the cross-validation metric for evaluating the model
+metrics.cross_validation = cross_validation_metrics
+metrics.metrics = metrics
+
+# Print model details
+print('Model details:')
+print('  - type: %s' % model.symbol)
+print('  - CCA: %s' % model.CCA)
+print('  - kernel: %s' % model.kernel)
+print('  - regularization: %s' % model.regularization)
+print('  - optimizer: %s' % model.optimizer)
+print('  - loss: %s' % model.loss)
+print('  - num_iterations: %s' % model.num_iterations)
+print('  - batch_size: %s' % model.batch_size)
+print('  - learning_rate: %s' % model.learning_rate)
+print('  - optimizer_wd: %s' % model.optimizer_wd)
+print('  - optimizer_mom: %s' % model.optimizer_mom)
+print('  - loss_func: %s' % model.loss_func)
+print('  - num_examples: %s' % model.num_examples)
+print('  - num_features: %s' % model.num_features)
+print('  - num_classes: %s' % model.num_classes)
+print('  - num_bins: %s' % model.num_bins)
+print('  - num_samples: %s' % model.num_samples)
+print('  - num_weights: %s' % model.num_weights)
+print('  - num_iters: %s' % model.num_iters)
+print('  - num_iterations_per_batch: %s' % model.num_iterations_per_batch)
+print('  - num_iters_per_batch_grad: %s' % model.num_iterations_per_batch_grad)
+print('  - num_iters_per_batch_eval: %s' % model.num_iters_per_batch_eval)
+print('  - num_iters_per_batch_train: %s

@@ -1,0 +1,21 @@
+{
+    "query": "Application of SVM",
+    "results": [
+        {
+            "idx": 1,
+            "title": "Applications of Support Vector Machine (SVM) Learning in Cancer Genomics",
+            "summary": "Implement a support vector machine (SVM) model to classify cancer subtypes using genomic data, as described in \"Applications of Support Vector Machine (SVM) Learning in Cancer Genomics\".\n",
+            "relevant_score": 0.3782965838909149,
+            "reliability_score": 517,
+            "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5822181/"
+        },
+        {
+            "idx": 2,
+            "title": "Application of support vector machine in cancer diagnosis",
+            "summary": "Implement a Support Vector Machine (SVM) model for cancer diagnosis using tumor marker data, optimizing parameters via grid search and cross-validation, and evaluating performance using metrics like accuracy, sensitivity, and specificity.\n",
+            "relevant_score": 0.37469857931137085,
+            "reliability_score": 518,
+            "reference": "https://link.springer.com/article/10.1007/s12032-010-9663-4"
+        }
+    ]
+}
