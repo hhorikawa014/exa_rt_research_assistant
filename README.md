@@ -2,6 +2,7 @@
 
 ## Overview
 In this project, I created a real-time AI research assistant to find the user-defined number of research papers about a user-defined topic and generate a Python code of resulted research papers.
+- Motivation: Finding cutting-edge ML research topic is getting harder since it's been updated everyday. Utilizing Exa.ai, it should be possible to find one and generate an initial code to grasp ideas.
 - First implement the searching part using Exa.ai API. This API is very flexible, fast, and accurate. Link to Exa.ai: https://exa.ai/
 - Build the transformer architecture with dropout customizability from scratch for learning purpose, using Pytorch. Train its encoder architecture with the SciTail dataset to calculate the reliablity score of the content.
 - For the code generation part, train the full transformer with the entire CodeSearchNet dataset. Unsurprisingly the outputs for sample python code implementation questions was very messy, so decide to rely on the pretrained model SalesForce CodeGen 350M Mono. This model had the descent outputs, however, 1: it takes longer to predict, 2: it relatively generates longer outputs even for simple questions, and 3: it sometimes outputs sentences not codes. Fine-tune this model with randomly selected 100000 samples (seed=42) from the CodeSearchNet dataset. The fine-tuned model performed more accurately and faster, and had more concise output codes. See model_comparison.ipynb for more comparison detail.
