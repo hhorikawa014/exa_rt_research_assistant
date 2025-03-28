@@ -13,5 +13,7 @@ Download links for models:
 - trained encoder model link: https://drive.google.com/file/d/1Ub799Sae5WnxK7VqYoB46C0DjFzi6XTO/view?usp=drive_link
 
 Note: To reproduce this project, you have to download models above as well as this repository and place them inside the directly "models".
+
 Note: Run this project on VS Code, and run the ipynb files on Google Colab with GPU access (at least better than or equivalent to A100 for trainings. cpu is capable to run just for model comparison).
+
 Note: You need an API key from Exa.ai. Replace "Your EXA API key" in line 10 of exa_search.py with your own API key.
